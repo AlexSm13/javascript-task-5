@@ -5,7 +5,7 @@
  * Сделано задание на звездочку
  * Реализованы методы several и through
  */
-getEmitter.isStar = false;
+getEmitter.isStar = true;
 module.exports = getEmitter;
 
 /**
@@ -45,7 +45,7 @@ function getEmitter() {
         off: function (event, context) {
             Object.keys(this.events)
                 .filter(function (nameEvent) {
-                    return nameEvent === event;
+                    return nameEvent.indexOf(event) >= 0;
                 })
                 .forEach(name => {
                     this.events[name] = this.events[name].filter(function (handler) {
